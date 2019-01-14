@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import Button from '@material-ui/core/Button';
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: new Date().toLocaleString()
+    }
+  }
+  tick() {
+    this.timerID = setInterval(() => {
+      this.setState((state,props) =>({
+        time: new Date().toLocaleString()
+      }));
+    },1000);
+  }
   render() {
     return (
+      <React.Fragment>
+      <h1>{this.state.time}</h1>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Button variant="contained" onClick={() => {this.tick()}} color="primary">
+          Hello World
+        </Button>
       </div>
+      </React.Fragment>
     );
   }
 }
