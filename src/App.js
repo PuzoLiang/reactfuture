@@ -1,29 +1,18 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
+import Button from './Button';
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      time: new Date().toLocaleString()
-    }
-  }
-  tick() {
-    this.timerID = setInterval(() => {
-      this.setState((state,props) =>({
-        time: new Date().toLocaleString()
-      }));
-    },1000);
   }
   render() {
+    const posts = [
+      {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
+      {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+    ];
     return (
       <React.Fragment>
-      <h1>{this.state.time}</h1>
-      <div className="App">
-        <Button variant="contained" onClick={() => {this.tick()}} color="primary">
-          Hello World
-        </Button>
-      </div>
+        <Button posts={posts} />
       </React.Fragment>
     );
   }
