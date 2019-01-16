@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Container from './Container';
-import Search from './Search';
-import Display from './Display';
+import FilterableProducTable from './Container';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +17,7 @@ class App extends Component {
   
  render() {
    return (
-     <Container top={<Search />} bottom={<Display data={this.state.data} />}/>
+     <FilterableProducTable data={this.state.data} />
    )
  }
 }
