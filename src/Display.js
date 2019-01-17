@@ -4,7 +4,7 @@ export default class Display extends React.Component {
 
 
   render() {
-    const { data, search, check } = this.props;
+    const { data } = this.props;
     const SportsRow = data.map((item, index) => {
       if (item.category === 'Sporting Goods') {
         return <li key={index}>{`${item.name} | ${item.price}`}</li>
